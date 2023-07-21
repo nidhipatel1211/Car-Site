@@ -1,0 +1,6 @@
+<h1>Team Members</h1>
+{% for member in team_members %}
+    <h1>Name : {{ member.first_name }} {{ member.last_name }}</h1>
+    <p>Semester : {{ member.semester }}</p>
+    <p>Link : <a href="{{ member.link }}">{{ member.link }}</a></p>
+{% endfor %}
