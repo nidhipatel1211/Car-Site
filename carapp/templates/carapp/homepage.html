@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title> Car Site </title>
+  {% extends 'carapp/base.html' %}
+</head>
+
+<body>
+  {% block body_block %}
+    {% if cartype_list %}
+      <h2 class="type"> Type of Cars </h2>
+        <hr>
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col-10">
+            <div class="row row-cols-3 row-cols-md-3 g-4">  
+              {% for cartype in cartype_list %} 
+                <div class="col"> 
+                    <div class="card h-100 card-height border-dark">
+                      <div class="card-body align-items-center d-flex justify-content-center">
+                        <a href="{% url 'cardetail' forloop.counter %}"> {{ cartype.name}} </a>
+                      </div>
+                    </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="col-1"></div>
+        </div>
+    {% else %}
+      <strong> None of the car types is available! </strong>
+    {% endif %}
+
+    <!--hardcoded URL-->
+    <!--<p><a href="/carapp/aboutus">About Page</a></p>-->
+
+    <!--URL namespacing-->
+    <!-- <p><a href="{% url 'aboutus' %}">About Us</p> -->
+  {% endblock %}
+
+</body>
+
+</html>
