@@ -1,0 +1,9 @@
+{% extends 'carapp/base.html' %}
+{% block body_block %}
+  <h2>You can place your order here</h2>
+  <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Submit Order</button>
+  </form>
+{% endblock %}
